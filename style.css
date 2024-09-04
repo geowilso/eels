@@ -78,25 +78,26 @@ main {
 }
 
 .gallery-item {
-    margin-bottom: 20px;
-    text-align: center; /* Center content inside each gallery item */
+    position: relative; /* Ensure gallery item is positioned relatively */
 }
+
 .gallery-item img {
-    max-width: 600px; /* Set a maximum width for all images */
+    max-width: 690px; /* Set a maximum width for all images */
     width: 100%; /* Ensure images take up the full width of the container */
     height: auto; /* Maintain aspect ratio */
     display: block;
-    margin-bottom: 30px; /* Space between image and link */
-    transition: transform 0.3s ease; /* Apply transition for both states */
+    margin-bottom: 40px; /* Space between image and link */
+    transition: transform 0.3s ease; /* Apply transition for smooth effect */
+    transform-origin: center center; /* Transform from the center of the image */
+    z-index: 1; /* Keep image on top */
 }
 
 .gallery-item img:hover {
     transform: scale(1.1); /* Enlarge by 10% on hover */
+    z-index: 2; /* Bring the hovered image in front */
 }
 
-.gallery-item a {
-    text-decoration: none;
-    color: #007bff; /* Link color */
-    font-weight: bold;
-    transition: transform 0.3s ease; /* Smooth hover transition */
+.gallery-item img:not(:hover) {
+    transform: scale(1); /* Reset scale when not hovering */
+    z-index: 1; /* Ensure it stays below the hovered image */
 }
