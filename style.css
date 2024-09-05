@@ -50,7 +50,6 @@ nav ul li a {
     transition: transform 0.3s ease; /* Smooth hover transition */
 }
 
-
 main {
     padding: 20px;
 }
@@ -60,15 +59,34 @@ main {
     text-align: center;
 }
 
-#live-radio h2 {
-    transition: transform 0.3s ease; /* Smooth hover transition */
+/* Custom play button style */
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Center the button */
 }
 
-.radio-player {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd; /* Light border for the radio player area */
-    background: #f9f9f9; /* Light background */
+.play-button:hover {
+    background-color: #444;
+}
+
+.play-button::before {
+    content: '►';
+    color: #fff;
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.play-button.playing::before {
+    content: '❚❚';
+    margin-left: 0;
 }
 
 #gallery {
@@ -77,12 +95,13 @@ main {
     align-items: center; /* Center gallery items horizontally */
 }
 
+
 .gallery-item {
     position: relative; /* Ensure gallery item is positioned relatively */
 }
 
 .gallery-item img {
-    max-width: 690px; /* Set a maximum width for all images */
+    max-width: 600px; /* Set a maximum width for all images */
     width: 100%; /* Ensure images take up the full width of the container */
     height: auto; /* Maintain aspect ratio */
     display: block;
