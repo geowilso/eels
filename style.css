@@ -1,4 +1,4 @@
-/* style.css */
+/* General Body Styling */
 body {
     font-family: 'Kindersley Grand Arcade', sans-serif;
     margin: 0;
@@ -6,6 +6,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header Styling */
 header {
     position: relative;
     padding: 1rem;
@@ -59,7 +60,7 @@ main {
     text-align: center;
 }
 
-/* Custom play button style */
+/* Custom Play Button Styling */
 .play-button {
     width: 60px;
     height: 60px;
@@ -89,34 +90,42 @@ main {
     margin-left: 0;
 }
 
-#gallery {
+/* Horizontal Scrolling Gallery */
+.gallery-container {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center gallery items horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 20px 0;
+    justify-content: flex-start;
+    gap: 40px; /* Space between items */
+    scrollbar-width: thin; /* Thinner scrollbar for Firefox */
 }
 
+.gallery-container::-webkit-scrollbar {
+    height: 8px; /* Height for the horizontal scrollbar */
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color on hover */
+}
 
 .gallery-item {
-    position: relative; /* Ensure gallery item is positioned relatively */
+    flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 .gallery-item img {
-    max-width: 600px; /* Set a maximum width for all images */
-    width: 100%; /* Ensure images take up the full width of the container */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 300px;
+    height: auto;
     display: block;
-    margin-bottom: 40px; /* Space between image and link */
-    transition: transform 0.3s ease; /* Apply transition for smooth effect */
-    transform-origin: center center; /* Transform from the center of the image */
-    z-index: 1; /* Keep image on top */
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img:hover {
-    transform: scale(1.1); /* Enlarge by 10% on hover */
-    z-index: 2; /* Bring the hovered image in front */
-}
-
-.gallery-item img:not(:hover) {
-    transform: scale(1); /* Reset scale when not hovering */
-    z-index: 1; /* Ensure it stays below the hovered image */
+    transform: scale(1.1); /* Enlarge the image slightly on hover */
 }
