@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple website for a sound and art radio station.">
     <title>Eels</title>
-    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,9 +28,7 @@
     <!-- Main Content Section -->
     <main>
         <section id="live-radio">
-            <!-- Custom Play Button -->
             <div id="play-button" class="play-button"></div>
-            <!-- Hidden Audio Element -->
             <audio id="radio-audio" src="http://eels.out.airtime.pro:8000/eels_a#.mp3" preload="none"></audio>
         </section>
 
@@ -39,27 +36,48 @@
         <section id="gallery" class="gallery-container">
             <div class="gallery-item">
                 <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/Anguilla_australis.jpg" alt="Playback image 1" class="hover-play" data-soundcloud-url="https://api.soundcloud.com/tracks/268799947/stream?client_id=YOUR_CLIENT_ID">
+                    <img src="assets/Anguilla_australis.jpg" alt="Playback image 1" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="https://soundcloud.com/your-soundcloud-link2" target="_blank">
-                    <img src="assets/FULLTOSSTHU04.jpg" alt="Playback image 2" class="hover-play" data-soundcloud-url="https://api.soundcloud.com/tracks/268799947/stream?client_id=YOUR_CLIENT_ID">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/FULLTOSSTHU04.jpg" alt="Playback image 2" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="https://soundcloud.com/your-soundcloud-link3" target="_blank">
-                    <img src="assets/istockphoto-1333825964-612x612.jpg" alt="Playback image 3" class="hover-play" data-soundcloud-url="https://api.soundcloud.com/tracks/268799947/stream?client_id=YOUR_CLIENT_ID">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/istockphoto-1333825964-612x612.jpg" alt="Playback image 3" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="https://soundcloud.com/your-soundcloud-link4" target="_blank">
-                    <img src="assets/Muraena_helena.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://api.soundcloud.com/tracks/268799947/stream?client_id=YOUR_CLIENT_ID">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/Muraena_helena.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                </a>
+            </div>
+            </div>
+            <div class="gallery-item">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/green.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                </a>
+            </div>
+            </div>
+            <div class="gallery-item">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/hut.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                </a>
+            </div>
+            </div>
+            <div class="gallery-item">
+                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
+                    <img src="assets/mum.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
                 </a>
             </div>
             <!-- Add more gallery items as needed -->
         </section>
     </main>
+
+    <!-- Hidden iframe for SoundCloud player -->
+    <iframe id="soundcloud-player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" style="display:none;"></iframe>
 
     <!-- JavaScript to control the audio element and gallery hover effects -->
     <script>
@@ -83,16 +101,15 @@
         document.querySelectorAll('.hover-play').forEach(function (image) {
             image.addEventListener('mouseover', function () {
                 var soundCloudURL = image.getAttribute('data-soundcloud-url');
-                var audio = new Audio(soundCloudURL);
-                audio.play();
-                image.audio = audio; // Store the audio object in the image element
+                var iframe = document.getElementById('soundcloud-player');
+                iframe.src = soundCloudURL;
+                iframe.style.display = 'block';
             });
 
             image.addEventListener('mouseout', function () {
-                if (image.audio) {
-                    image.audio.pause();
-                    image.audio = null; // Remove the audio object reference
-                }
+                var iframe = document.getElementById('soundcloud-player');
+                iframe.src = "";
+                iframe.style.display = 'none';
             });
         });
     </script>
