@@ -1,0 +1,9 @@
+{
+  "name": "eels-radio",
+  "version": "1.0.0",
+  "description": "A simple website for the Eels project",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {}
+}
