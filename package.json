@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple website for the Eels project",
   "scripts": {
-    "build": "echo 'No build step required'"
+    "build": "node-sass src/styles -o dist/styles"
     },
   "dependencies": {
     "node-sass": "^7.0.0"
