@@ -4,6 +4,8 @@
   "description": "A simple website for the Eels project",
   "scripts": {
     "build": "echo 'No build step required'"
-  },
-  "dependencies": {}
+    },
+  "dependencies": {
+    "node-sass": "^7.0.0"
+  }
 }
