@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Kindersley Grand Arcade'; /* Name of your font */
+    src: url('fonts/KINDGSFR.woff2') format('woff2'),
+         url('fonts/KINDGSFR.woff') format('woff'),
+         url('fonts/KINDGSFR.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* General Body Styling */
 body {
     font-family: 'Kindersley Grand Arcade', sans-serif;
