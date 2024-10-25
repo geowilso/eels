@@ -46,7 +46,7 @@ header h1 {
 /* Navigation Styling */
 nav {
     margin-top: 1rem;
-	margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 nav ul {
@@ -82,8 +82,8 @@ footer {
     background-color: #f4f4f4;
     padding: 1rem 0;
     text-align: center;
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 footer ul {
@@ -148,22 +148,15 @@ main {
     object-fit: cover;
 }
 
-
 /* Gallery Styling */
-
-
-
 .gallery-container {
     display: grid;
-	justify-content: center;
-    grid-template-columns: repeat(2, 500px); /* Two columns */
-    column-gap: 30px; /* Reduced space between columns */
-	gap: 30px;
-    padding: 20px 0; /* Padding for top and bottom */
-	margin: 0 auto;
-	background-color: transparent;
-	
-	
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    column-gap: 40px; /* Space between columns */
+    row-gap: 40px; /* Space between rows */
+    padding: 60px; /* Padding for top and bottom */
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -172,29 +165,46 @@ main {
     align-items: center; /* Center align items */
     text-align: center; /* Center the text under images */
     background-color: transparent; /* Light background color for visibility */
-    padding: 10px; /* Optional padding */
-	border: 2px solid #333;
-	border-radius: 10px;
-	padding: 30px
+    padding: 20px; /* Padding around gallery items */
+    border: 2px solid #333; /* Outline for gallery items */
+    border-radius: 10px; /* Rounded corners */
 }
 
+/* Ensure images fit and maintain aspect ratio */
 .gallery-item img {
     width: 100%;
-    max-width: 400px; /* Ensures consistent size */
-    height: auto;
-    border-radius: 10px; /* Add rounded corners to images */
-    transition: transform 0.3s ease; /* Smooth hover transition */
-}
-
-.gallery-item img:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    transition: none; /* Remove hover transition effect */
 }
 
 .gallery-item p {
     margin-top: 10px; /* Space above the text */
     font-size: 1rem; /* Text size */
     color: #333; /* Text color */
-	padding: 30px
+	padding: 20px;
 }
 
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 3rem; /* Smaller font size for mobile */
+    }
 
+    .gallery-container {
+        grid-template-columns: 1fr; /* Change to one column on small screens */
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .gallery-item {
+        padding: 15px; /* Adjust padding for mobile items */
+    }
+
+    .gallery-item img {
+        max-width: 100%; /* Ensure images fit within their container */
+    }
+
+    nav ul li {
+        font-size: 1rem; /* Smaller font size for mobile navigation */
+    }
+}

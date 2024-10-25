@@ -42,7 +42,7 @@
         </ul>
     </footer>
 
-    <!-- JavaScript to control the audio element and gallery hover effects -->
+    <!-- JavaScript to control the audio element -->
     <script>
         const playButton = document.getElementById('play-button');
         const playIcon = document.getElementById('play-icon');
@@ -61,21 +61,7 @@
             isPlaying = !isPlaying;
         });
 
-        // SoundCloud hover play
-        document.querySelectorAll('.hover-play').forEach(function (image) {
-            image.addEventListener('mouseover', function () {
-                var soundCloudURL = image.getAttribute('data-soundcloud-url');
-                var iframe = document.getElementById('soundcloud-player');
-                iframe.src = soundCloudURL;
-                iframe.style.display = 'block';
-            });
-
-            image.addEventListener('mouseout', function () {
-                var iframe = document.getElementById('soundcloud-player');
-                iframe.src = "";
-                iframe.style.display = 'none';
-            });
-        });
+        
     </script>
 </body>
 </html>
