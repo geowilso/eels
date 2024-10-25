@@ -1,5 +1,6 @@
+/* Font Import */
 @font-face {
-    font-family: 'Kindersley Grand Arcade'; /* Name of your font */
+    font-family: 'Kindersley Grand Arcade';
     src: url('fonts/KINDGSFR.woff2') format('woff2'),
          url('fonts/KINDGSFR.woff') format('woff'),
          url('fonts/KINDGSFR.ttf') format('truetype');
@@ -7,60 +8,114 @@
     font-style: normal;
 }
 
-/* General Body Styling */
-body {
-    font-family: 'Kindersley Grand Arcade', sans-serif;
+/* Reset and Body Styling */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Kindersley Grand Arcade', sans-serif;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styling */
 header {
     position: relative;
     padding: 1rem;
-    background: #fff; /* White background for the header */
+    background: #fff;
+    text-align: center;
 }
 
 header .logo {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 100px; /* Adjust logo size */
-    height: auto;
+    width: 400px; /* Adjust logo size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 1rem; /* Space below the logo */
 }
 
 header h1 {
-    text-align: center;
-    font-size: 4rem; /* Large font size for the title */
+    font-size: 4rem;
     margin: 0;
-    transition: transform 0.3s ease; /* Smooth hover transition */
+    transition: transform 0.3s ease;
 }
 
+/* Navigation Styling */
 nav {
     margin-top: 1rem;
+	margin-bottom: 2rem;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     text-align: center;
+    padding: 0;
 }
 
 nav ul li {
     display: inline-block;
     margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #000; /* Black color for links */
-    font-weight: bold;
-    font-size: 1.2rem; /* Adjust font size for visibility */
-    transition: transform 0.3s ease; /* Smooth hover transition */
+    color: #000;
+    transition: transform 0.3s ease;
 }
 
+nav ul li::after {
+    content: '|';
+    margin-left: 10px;
+}
+
+nav ul li:last-child::after {
+    content: '';
+}
+
+/* Footer Styling */
+footer {
+    background-color: #f4f4f4;
+    padding: 1rem 0;
+    text-align: center;
+	position: relative;
+	width: 100%;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+footer ul li::after {
+    content: '|';
+    margin-left: 10px;
+}
+
+footer ul li:last-child::after {
+    content: '';
+}
+
+/* Main Content Styling */
 main {
+    flex: 1;
     padding: 20px;
 }
 
@@ -69,72 +124,77 @@ main {
     text-align: center;
 }
 
-/* Custom Play Button Styling */
+/* Play Button Styling */
 .play-button {
-    width: 60px;
-    height: 60px;
-    background-color: #000;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin: 0 auto;
+    overflow: hidden;
     transition: background-color 0.3s;
-    margin: 0 auto; /* Center the button */
 }
 
 .play-button:hover {
-    background-color: #444;
+    background-color: transparent;
 }
 
-.play-button::before {
-    content: '►';
-    color: #fff;
-    font-size: 24px;
-    margin-left: 5px;
+.play-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.play-button.playing::before {
-    content: '❚❚';
-    margin-left: 0;
-}
 
-/* Horizontal Scrolling Gallery */
+/* Gallery Styling */
+
+
+
 .gallery-container {
-    display: flex;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    padding: 20px 0;
-    justify-content: flex-start;
-    gap: 40px; /* Space between items */
-    scrollbar-width: thin; /* Thinner scrollbar for Firefox */
-}
-
-.gallery-container::-webkit-scrollbar {
-    height: 8px; /* Height for the horizontal scrollbar */
-}
-
-.gallery-container::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px;
-}
-
-.gallery-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darker color on hover */
+    display: grid;
+	justify-content: center;
+    grid-template-columns: repeat(2, 500px); /* Two columns */
+    column-gap: 30px; /* Reduced space between columns */
+	gap: 30px;
+    padding: 20px 0; /* Padding for top and bottom */
+	margin: 0 auto;
+	background-color: transparent;
+	
+	
 }
 
 .gallery-item {
-    flex-shrink: 0; /* Prevent items from shrinking */
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center the text under images */
+    background-color: transparent; /* Light background color for visibility */
+    padding: 10px; /* Optional padding */
+	border: 2px solid #333;
+	border-radius: 10px;
+	padding: 30px
 }
 
 .gallery-item img {
-    max-width: 300px;
+    width: 100%;
+    max-width: 400px; /* Ensures consistent size */
     height: auto;
-    display: block;
-    transition: transform 0.3s ease; /* Smooth scale on hover */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Add rounded corners to images */
+    transition: transform 0.3s ease; /* Smooth hover transition */
 }
 
 .gallery-item img:hover {
-    transform: scale(1.1); /* Enlarge the image slightly on hover */
+    transform: scale(1.05); /* Zoom effect on hover */
 }
+
+.gallery-item p {
+    margin-top: 10px; /* Space above the text */
+    font-size: 1rem; /* Text size */
+    color: #333; /* Text color */
+	padding: 30px
+}
+
+

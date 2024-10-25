@@ -10,78 +10,42 @@
 <body>
     <!-- Header Section -->
     <header>
-        <img src="assets/logo.png" alt="eels logo" class="logo">
-        <h1>Eels</h1>
         <nav>
             <ul>
-                <li><a href="#listen">Listen</a></li>
-                <li><a href="#archive">Archive</a></li>
-                <li><a href="#editorial">Editorial</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#store">Store</a></li>
-                <li><a href="#support">Support</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="archive.html">ARCHIVE</a></li>
+                <li><a href="schedule.html">SCHEDULE</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.hmtl">CONTACT</a></li>
             </ul>
         </nav>
+        <img src="assets/Eels Logo.jpg" alt="eels logo" class="logo">
     </header>
 
     <!-- Main Content Section -->
     <main>
         <section id="live-radio">
-            <div id="play-button" class="play-button"></div>
+            <div id="play-button" class="play-button">
+                <img id="play-icon" src="assets/water still.jpg" alt="Play Icon">
+            </div>
             <audio id="radio-audio" src="http://eels.out.airtime.pro:8000/eels_a#.mp3" preload="none"></audio>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery-container">
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/Anguilla_australis.jpg" alt="Playback image 1" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/FULLTOSSTHU04.jpg" alt="Playback image 2" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/istockphoto-1333825964-612x612.jpg" alt="Playback image 3" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/Muraena_helena.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/green.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/hut.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            </div>
-            <div class="gallery-item">
-                <a href="https://soundcloud.com/samuelwunsche/sundayvibes" target="_blank">
-                    <img src="assets/mum.jpg" alt="Playback image 4" class="hover-play" data-soundcloud-url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268799947&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </a>
-            </div>
-            <!-- Add more gallery items as needed -->
         </section>
     </main>
 
-    <!-- Hidden iframe for SoundCloud player -->
-    <iframe id="soundcloud-player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" style="display:none;"></iframe>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <ul>
+            <li><a href="#listen">INSTAGRAM</a></li>
+            <li><a href="#archive">TWITTER</a></li>
+            <li><a href="#editorial">SOUNDCLOUD</a></li>
+            <li><a href="#events">MAILING LIST</a></li>
+        </ul>
+    </footer>
 
     <!-- JavaScript to control the audio element and gallery hover effects -->
     <script>
         const playButton = document.getElementById('play-button');
+        const playIcon = document.getElementById('play-icon');
         const radioAudio = document.getElementById('radio-audio');
 
         let isPlaying = false;
@@ -89,10 +53,10 @@
         playButton.addEventListener('click', () => {
             if (isPlaying) {
                 radioAudio.pause();
-                playButton.classList.remove('playing');
+                playIcon.src = 'assets/water still.jpg'; // Switch to the static image to simulate pause
             } else {
                 radioAudio.play();
-                playButton.classList.add('playing');
+                playIcon.src = 'assets/Water Animation.gif'; // Switch to the animated GIF to simulate play
             }
             isPlaying = !isPlaying;
         });
