@@ -25,17 +25,56 @@
   <!-- Main gallery -->
   <main>
     <section id="gallery" class="gallery-container">
+
+
+      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+      
       <div class="gallery-item">
-        <img src="assets/production1.jpg" alt="Production Image 1">
-        <p>Description for Production Image 1 ...</p>
+        <img src="assets/hut.jpg" 
+             alt="Playback image 1" 
+             class="play-soundcloud" 
+             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+        <p>Description for Image 1 ...</p>
       </div>
+
+      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+      
       <div class="gallery-item">
-        <img src="assets/production2.jpg" alt="Production Image 2">
-        <p>Description for Production Image 2 ...</p>
+        <img src="assets/green.jpg" 
+             alt="Playback image 1" 
+             class="play-soundcloud" 
+             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+        <p>Description for Image 1 ...</p>
       </div>
-      <!-- Add more gallery items as needed -->
+
+      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+
+      <div class="gallery-item">
+        <img src="assets/Anguilla_australis.jpg" 
+             alt="Playback image 1" 
+             class="play-soundcloud" 
+             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+        <p>Description for Image 1 ...</p>
+      </div>
+
+      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+
+      <div class="gallery-item">
+        <img src="assets/FULLTOSSTHU04.jpg" 
+             alt="Playback image 2" 
+             class="play-soundcloud" 
+             data-sc-url="https://api.soundcloud.com/tracks/268799948">
+        <p>Description for Image 2 ...</p>
+      </div>
+
+      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+
+
     </section>
   </main>
+
+  <!-- Sticky SoundCloud player -->
+  <div id="soundcloud-player-container"></div>
 
   <!-- Footer -->
   <footer>
@@ -45,8 +84,9 @@
     </ul>
   </footer>
 
+
+  <!-- JS for masonry and SoundCloud -->
   <script>
-    // Masonry effect for production gallery
     function resizeAllGridItems() {
       const grid = document.querySelector('.gallery-container');
       const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -59,6 +99,21 @@
     }
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
+
+    document.querySelectorAll('.play-soundcloud').forEach(img => {
+      img.addEventListener('click', () => {
+        const scUrl = img.dataset.scUrl;
+        const playerContainer = document.getElementById('soundcloud-player-container');
+        playerContainer.innerHTML = `
+          <iframe
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=${encodeURIComponent(scUrl)}&auto_play=true&visual=false&show_comments=false&show_user=false&show_reposts=false">
+          </iframe>
+        `;
+      });
+    });
   </script>
 </body>
 </html>
