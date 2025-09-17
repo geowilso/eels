@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="A simple website for a sound and art radio station.">
+  <title>Eels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="broadcast.html">BROADCAST</a></li>
+        <li><a href="production.html">PRODUCTION</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+      </ul>
+    </nav>
+    <div class="logo">
+      <img src="assets/Eels Logo.jpg" alt="Site Logo">
+    </div>
+  </header>
+
+  <!-- Main gallery -->
+  <main>
+    <section id="gallery" class="gallery-container">
+      <div class="gallery-item">
+        <img src="assets/production1.jpg" alt="Production Image 1">
+        <p>Description for Production Image 1 ...</p>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/production2.jpg" alt="Production Image 2">
+        <p>Description for Production Image 2 ...</p>
+      </div>
+      <!-- Add more gallery items as needed -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <ul>
+      <li><a href="https://instagram.com/yourpage" target="_blank">Instagram</a></li>
+      <li>Email: youremail@example.com</li>
+    </ul>
+  </footer>
+
+  <script>
+    // Masonry effect for production gallery
+    function resizeAllGridItems() {
+      const grid = document.querySelector('.gallery-container');
+      const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+      const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+      grid.querySelectorAll('.gallery-item').forEach(item => {
+        const contentHeight = item.querySelector('img').offsetHeight + item.querySelector('p').offsetHeight + 30;
+        const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+        item.style.gridRowEnd = `span ${rowSpan}`;
+      });
+    }
+    window.addEventListener('load', resizeAllGridItems);
+    window.addEventListener('resize', resizeAllGridItems);
+  </script>
+</body>
+</html>

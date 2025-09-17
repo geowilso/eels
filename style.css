@@ -1,210 +1,160 @@
 /* Font Import */
 @font-face {
-    font-family: 'Kindersley Grand Arcade';
-    src: url('fonts/KINDGSFR.woff2') format('woff2'),
-         url('fonts/KINDGSFR.woff') format('woff'),
-         url('fonts/KINDGSFR.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Kindersley Grand Arcade';
+  src: url('fonts/KINDGSFR.woff2') format('woff2'),
+       url('fonts/KINDGSFR.woff') format('woff'),
+       url('fonts/KINDGSFR.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* Reset and Body Styling */
+/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
-    font-family: 'Kindersley Grand Arcade', sans-serif;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  font-family: 'Kindersley Grand Arcade', Arial, sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header Styling */
+/* Header Layout */
 header {
-    position: relative;
-    padding: 1rem;
-    background: #fff;
-    text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* keep nav vertical, top-aligned */
+  padding: 1rem;
+  background: #fff;
 }
 
-header .logo {
-    width: 400px; /* Adjust logo size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 1rem; /* Space below the logo */
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* vertical nav */
+  margin: 35px;            /* same as original Broadcast */
+  padding: 0;
 }
 
-header h1 {
-    font-size: 4rem;
-    margin: 0;
-    transition: transform 0.3s ease;
+header nav ul li {
+  font-size: 1.4rem;       /* consistent font size */
+  font-weight: bold;
+  margin: 10px 0;          /* spacing between items */
 }
 
-/* Navigation Styling */
-nav {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+header nav ul li a {
+  text-decoration: none;
+  color: #000;
 }
 
-nav ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
+header .logo img {
+  max-width: 250px;  /* fixed logo size */
+  height: auto;
+  margin: 15px;      /* same spacing as original Broadcast */
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000;
-    transition: transform 0.3s ease;
-}
-
-nav ul li::after {
-    content: '|';
-    margin-left: 10px;
-}
-
-nav ul li:last-child::after {
-    content: '';
-}
-
-/* Footer Styling */
 footer {
-    background-color: #f4f4f4;
-    padding: 1rem 0;
-    text-align: center;
-    position: relative;
-    width: 100%;
+  background-color: transparent; /* remove grey */
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
 }
 
 footer ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 footer ul li {
-    display: inline-block;
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
 }
 
 footer ul li a {
-    text-decoration: none;
-    color: #000;
-    transition: transform 0.3s ease;
+  text-decoration: none;
+  color: #000;
 }
 
-footer ul li::after {
-    content: '|';
-    margin-left: 10px;
-}
-
-footer ul li:last-child::after {
-    content: '';
-}
-
-/* Main Content Styling */
+/* Main */
 main {
-    flex: 1;
-    padding: 20px;
+  flex: 1;
+  padding: 20px;
 }
 
-#live-radio {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* Play Button Styling */
-.play-button {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin: 0 auto;
-    overflow: hidden;
-    transition: background-color 0.3s;
-}
-
-.play-button:hover {
-    background-color: transparent;
-}
-
-.play-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Gallery Styling */
+/* Masonry Grid */
 .gallery-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    column-gap: 40px; /* Space between columns */
-    row-gap: 40px; /* Space between rows */
-    padding: 60px; /* Padding for top and bottom */
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 10px; 
+  gap: 20px;
+  padding: 20px;
 }
 
 .gallery-item {
-    display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center align items */
-    text-align: center; /* Center the text under images */
-    background-color: transparent; /* Light background color for visibility */
-    padding: 20px; /* Padding around gallery items */
-    border: 2px solid #333; /* Outline for gallery items */
-    border-radius: 10px; /* Rounded corners */
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-/* Ensure images fit and maintain aspect ratio */
 .gallery-item img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners */
-    transition: none; /* Remove hover transition effect */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
 }
 
 .gallery-item p {
-    margin-top: 10px; /* Space above the text */
-    font-size: 1rem; /* Text size */
-    color: #333; /* Text color */
-	padding: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
 }
 
-/* Responsive adjustments for mobile */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 3rem; /* Smaller font size for mobile */
-    }
+/* Sticky SoundCloud bar (Broadcast page only) */
+#soundcloud-player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+  text-align: center;
+  background: transparent;
+}
 
-    .gallery-container {
-        grid-template-columns: 1fr; /* Change to one column on small screens */
-        padding: 10px; /* Adjust padding for mobile */
-    }
+#soundcloud-player-container iframe {
+  width: 100%;
+  height: 66px;  /* compact player height */
+  border: none;
+}
 
-    .gallery-item {
-        padding: 15px; /* Adjust padding for mobile items */
-    }
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .gallery-item img {
-        max-width: 100%; /* Ensure images fit within their container */
-    }
+  header nav ul {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 
-    nav ul li {
-        font-size: 1rem; /* Smaller font size for mobile navigation */
-    }
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
 }
