@@ -144,17 +144,22 @@ main {
 /* Responsive */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;       /* keep header horizontal */
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;           /* allows nav to wrap if needed */
   }
 
   header nav ul {
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 1rem;
+    flex-direction: column;    /* keep nav vertical */
+    margin: 0;
+  }
+
+  header .logo {
+    margin-left: auto;         /* pushes logo to the right */
   }
 
   .gallery-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  /* keep masonry single column on small screens */
   }
 }
