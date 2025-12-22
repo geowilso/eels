@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="A simple website for a sound and art radio station.">
-  <title>Eels</title>
+  <meta name="description" content="About Eels: Learn about our mission as a sound and art radio station, featuring experimental broadcasts, productions, and a passion for audio storytelling.">
+  <title>Eels - About</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
       </ul>
     </nav>
     <div class="logo">
-      <img src="assets/Eels Logo.jpg" alt="Site Logo">
+      <img src="assets/Eels Logo.jpg" alt="Eels Radio Station Logo" loading="lazy">
     </div>
   </header>
 
@@ -31,9 +31,8 @@
       
       <div class="gallery-item">
         <img src="assets/hut.jpg" 
-             alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+             alt="Artistic image representing Eels radio station's sound and art focus" 
+             >
         <p>Description for Image 1 ...</p>
       </div>
 
@@ -41,9 +40,8 @@
       
       <div class="gallery-item">
         <img src="assets/green.jpg" 
-             alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+             alt="Artistic green-themed image for Eels radio station content" 
+             >
         <p>Description for Image 1 ...</p>
       </div>
 
@@ -52,8 +50,7 @@
       <div class="gallery-item">
         <img src="assets/Anguilla_australis.jpg" 
              alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+             >
         <p>Description for Image 1 ...</p>
       </div>
 
@@ -62,8 +59,7 @@
       <div class="gallery-item">
         <img src="assets/FULLTOSSTHU04.jpg" 
              alt="Playback image 2" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799948">
+             >
         <p>Description for Image 2 ...</p>
       </div>
 
@@ -72,9 +68,6 @@
 
     </section>
   </main>
-
-  <!-- Sticky SoundCloud player -->
-  <div id="soundcloud-player-container"></div>
 
   <!-- Footer -->
   <footer>
@@ -85,35 +78,20 @@
   </footer>
 
 
-  <!-- JS for masonry and SoundCloud -->
+  <!-- JS for masonry -->
   <script>
     function resizeAllGridItems() {
       const grid = document.querySelector('.gallery-container');
       const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
       const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
       grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = item.querySelector('img').offsetHeight + item.querySelector('p').offsetHeight + 30;
+        const contentHeight = item.scrollHeight;
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
         item.style.gridRowEnd = `span ${rowSpan}`;
       });
     }
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
-
-    document.querySelectorAll('.play-soundcloud').forEach(img => {
-      img.addEventListener('click', () => {
-        const scUrl = img.dataset.scUrl;
-        const playerContainer = document.getElementById('soundcloud-player-container');
-        playerContainer.innerHTML = `
-          <iframe
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=${encodeURIComponent(scUrl)}&auto_play=true&visual=false&show_comments=false&show_user=false&show_reposts=false">
-          </iframe>
-        `;
-      });
-    });
   </script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="A simple website for a sound and art radio station.">
-  <title>Eels</title>
+  <meta name="description" content="Eels Productions: Explore original radio ballads and sound art creations, including immersive stories like 'Field Work in the Fens' blending audio, visuals, and narrative.">
+  <title>Eels - Productions</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
       </ul>
     </nav>
     <div class="logo">
-      <img src="assets/Eels Logo.jpg" alt="Site Logo">
+      <img src="assets/Eels Logo.jpg" alt="Eels Radio Station Logo" loading="lazy">
     </div>
   </header>
 
@@ -27,93 +27,93 @@
     <section id="gallery" class="gallery-container">
 
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-      
       <div class="gallery-item">
-        <img src="assets/hut.jpg" 
-             alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
-        <p>Description for Image 1 ...</p>
+
+        <h3>Radio Ballad: Field Work in the Fens</h3>
+
+        <img src="assets/Field Work in the Fens/Field Work image.jpg" 
+             alt="Artistic image of fenland landscape for Radio Ballad: Field Work in the Fens production" 
+             >
+        <p>
+        Beginning with the over-cultivation of the fenland landscape in the wake of the Second World War, Radio Ballad 003: Field Work in the Fens tells a story of friction, resistance and an ongoing struggle for power, taking the audience on a journey through peasantry society, crop science, countercultural obsession with houseplants and 1970s pulp and folk horror to challenge and transform our understanding of human’s place in natural society.
+        </p>
+
+        <p>
+        Presented in a live listening format, Radio Ballad 003 is an exploration of the collision between humans and the natural world of plants that takes place within the Anthropocene.
+        </p>
+
+        <p>
+        “No witchcraft, no enemy action had silenced the rebirth of new life in this stricken world, the people had done it themselves”
+        <br>— Rachel Carson, <em>Silent Springs</em>
+        </p>
+
+        <p>
+        Featuring contributions from Dr Aoife O’Driscoll and Dr Emily Bourke, and music from the Shackleton Trio.
+        </p>
+
+        <p>
+        An original eels production (2022)
+        </p>
+
+        <audio controls>
+          <source src="assets/Field Work in the Fens/SN Radio Ballad- Desk Recording.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
       </div>
 
       <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
+      
+<!--
       
       <div class="gallery-item">
         <img src="assets/green.jpg" 
-             alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+             alt="Playback image 1">
         <p>Description for Image 1 ...</p>
       </div>
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
 
       <div class="gallery-item">
         <img src="assets/Anguilla_australis.jpg" 
-             alt="Playback image 1" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799947">
+             alt="Playback image 1">
         <p>Description for Image 1 ...</p>
       </div>
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
 
       <div class="gallery-item">
         <img src="assets/FULLTOSSTHU04.jpg" 
-             alt="Playback image 2" 
-             class="play-soundcloud" 
-             data-sc-url="https://api.soundcloud.com/tracks/268799948">
+             alt="Playback image 2">
         <p>Description for Image 2 ...</p>
       </div>
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-
+    -->
 
     </section>
   </main>
-
-  <!-- Sticky SoundCloud player -->
-  <div id="soundcloud-player-container"></div>
 
   <!-- Footer -->
   <footer>
     <ul>
       <li><a href="https://instagram.com/yourpage" target="_blank">Instagram</a></li>
-      <li>Email: youremail@example.com</li>
+      <li>Email: eelsradio@gmail.com</li>
     </ul>
   </footer>
 
 
-  <!-- JS for masonry and SoundCloud -->
+  <!-- JS for masonry -->
   <script>
     function resizeAllGridItems() {
       const grid = document.querySelector('.gallery-container');
       const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
       const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+
       grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = item.querySelector('img').offsetHeight + item.querySelector('p').offsetHeight + 30;
+        const contentHeight = item.scrollHeight;
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
         item.style.gridRowEnd = `span ${rowSpan}`;
       });
     }
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
-
-    document.querySelectorAll('.play-soundcloud').forEach(img => {
-      img.addEventListener('click', () => {
-        const scUrl = img.dataset.scUrl;
-        const playerContainer = document.getElementById('soundcloud-player-container');
-        playerContainer.innerHTML = `
-          <iframe
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=${encodeURIComponent(scUrl)}&auto_play=true&visual=false&show_comments=false&show_user=false&show_reposts=false">
-          </iframe>
-        `;
-      });
-    });
   </script>
 </body>
 </html>
