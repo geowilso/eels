@@ -1,4 +1,7 @@
-/* Font Import */
+/* ==================================================
+   Font Import
+================================================== */
+
 @font-face {
   font-family: 'Kindersley Grand Arcade';
   src: url('fonts/KINDGSFR.woff2') format('woff2'),
@@ -8,22 +11,32 @@
   font-style: normal;
 }
 
-/* Reset */
+
+/* ==================================================
+   Reset / Global Defaults
+================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: 'Kindersley Grand Arcade', Arial, sans-serif;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
+  font-size: 18px;
 }
 
-/* Header Layout */
+
+/* ==================================================
+   Header Layout
+================================================== */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -32,18 +45,23 @@ header {
   background: #fff;
 }
 
+
+/* ==================================================
+   Header Navigation
+================================================== */
+
 header nav ul {
   list-style: none;
   display: flex;
   flex-direction: column; /* vertical nav */
-  margin: 35px;            /* same as original Broadcast */
+  margin: 35px;           /* same as original Broadcast */
   padding: 0;
 }
 
 header nav ul li {
-  font-size: 1.4rem;       /* consistent font size */
+  font-size: 1.4rem;      /* consistent font size */
   font-weight: bold;
-  margin: 10px 0;          /* spacing between items */
+  margin: 10px 0;         /* spacing between items */
 }
 
 header nav ul li a {
@@ -56,11 +74,21 @@ header nav ul li a:focus {
   outline-offset: 2px;
 }
 
+
+/* ==================================================
+   Logo
+================================================== */
+
 header .logo img {
-  max-width: 250px;  /* fixed logo size */
+  max-width: 250px; /* fixed logo size */
   height: auto;
-  margin: 15px;      /* same spacing as original Broadcast */
+  margin: 15px;     /* same spacing as original Broadcast */
 }
+
+
+/* ==================================================
+   Footer
+================================================== */
 
 footer {
   background-color: transparent; /* remove grey */
@@ -93,17 +121,25 @@ footer ul li a:focus {
   outline-offset: 2px;
 }
 
-/* Main */
+
+/* ==================================================
+   Main Content
+================================================== */
+
 main {
   flex: 1;
   padding: 20px;
 }
 
-/* Masonry Grid */
+
+/* ==================================================
+   Masonry Gallery Grid
+================================================== */
+
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 20px; 
+  grid-auto-rows: 20px;
   gap: 20px;
   padding: 20px;
 }
@@ -114,12 +150,17 @@ main {
   }
 }
 
+
+/* ==================================================
+   Gallery Items
+================================================== */
+
 .gallery-item {
   background: #fff;
   border: 2px solid #333;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  text-align: justify;
   box-sizing: border-box;
   overflow: hidden;
   cursor: pointer;
@@ -136,6 +177,17 @@ main {
   margin-top: 10px;
 }
 
+.gallery-item h3 {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+
+/* ==================================================
+   Audio Players
+================================================== */
+
 .gallery-item audio {
   margin-top: 15px;
   width: 100%;
@@ -148,6 +200,19 @@ audio {
   margin-top: 1em;
 }
 
+audio {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  filter: grayscale(1) contrast(1.1);
+}
+
+
+/* ==================================================
+   Small Headings
+================================================== */
+
 h4 {
   font-size: 0.9rem;
   margin-bottom: 0.5em;
@@ -155,25 +220,81 @@ h4 {
   text-transform: uppercase; /* optional */
 }
 
-/* Responsive */
+
+/* ==================================================
+   About Page Layout
+================================================== */
+
+.about-container {
+  padding: 40px;
+}
+
+.about-square {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.about-square h1 {
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.about-square p {
+  margin-bottom: 24px;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+
+/* ==================================================
+   Contact Block
+================================================== */
+
+.contact-block {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 2px solid #000;
+}
+
+.contact-block h2 {
+  margin-bottom: 15px;
+}
+
+
+/* ==================================================
+   Responsive Layout
+================================================== */
+
 @media (max-width: 768px) {
   header {
-    flex-direction: row;       /* keep header horizontal */
+    flex-direction: row;      /* keep header horizontal */
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap;           /* allows nav to wrap if needed */
+    flex-wrap: wrap;          /* allows nav to wrap if needed */
   }
 
   header nav ul {
-    flex-direction: column;    /* keep nav vertical */
+    flex-direction: column;   /* keep nav vertical */
     margin: 0;
   }
 
   header .logo {
-    margin-left: auto;         /* pushes logo to the right */
+    margin-left: auto;        /* pushes logo to the right */
   }
 
   .gallery-container {
-    grid-template-columns: 1fr;  /* keep masonry single column on small screens */
+    grid-template-columns: 1fr; /* keep masonry single column on small screens */
   }
 }

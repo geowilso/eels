@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic Page Settings -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Search / Preview Description -->
   <meta name="description" content="Eels: An experimental sound and art radio station featuring immersive audio broadcasts, visual storytelling, and unique productions exploring soundscapes and creativity.">
+
+  <!-- Page Title -->
   <title>Eels - Broadcast</title>
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Header Section -->
+  <!-- ==================================================
+       Header / Navigation
+  ================================================== -->
+
   <header>
+    <!-- Main Navigation -->
     <nav>
       <ul>
         <li><a href="index.html">BROADCAST</a></li>
@@ -17,73 +29,140 @@
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
+
+    <!-- Site Logo -->
     <div class="logo">
-      <img src="assets/Eels Logo.jpg" alt="Eels Radio Station Logo" loading="lazy">
+      <img
+        src="assets/Logos/Eels Logo.jpg"
+        alt="Eels Radio Station Logo"
+        loading="lazy"
+      >
     </div>
   </header>
 
-  <!-- Main gallery -->
+
+  <!-- ==================================================
+       Main Content
+  ================================================== -->
+
   <main>
+    <!-- Broadcast Gallery -->
     <section id="gallery" class="gallery-container">
 
+      <!-- ==================================================
+           Gallery Item: Coastal Memories
+      ================================================== -->
 
       <div class="gallery-item">
-        <img src="assets/hut.jpg" 
-             alt="Artistic image representing upcoming broadcasts on Eels radio" 
-             >
-        <p>Stay tuned.</p>
+        <img
+          src="assets\Broadcast\B1\Coastal Memories Fading & Wistfulness of Magnetic Bird Song.jpg"
+          alt="Coastal Memories Fading & Wistfulness of Magnetic Bird Song"
+        >
+
+        <h3>Coastal Memories Fading & Wistfulness of Magnetic Bird Song.</h3>
+
+        <h4>Michael Ridge</h4>
+
+        <p>
+          Composed from extended cassette tape loops of lo-fi ambient music and
+          field recordings of bird song, chimes, streams/rivers and the coast.
+          A soundtrack to fading coastal memories from long ago. Originally
+          released on Quagga Curious Sounds as the fifth instalment in the Misc
+          Loops series via a limited-edition cassette tape and digital download.
+        </p>
+
+        <p>
+          https://mridge.bandcamp.com/
+        </p>
+
+        <p>
+          Instagram: @michaelridgeart
+        </p>
+
+        <audio controls>
+          <source
+            src="assets/Broadcast/B1/Coastal Memories Fading and Wistfulness Of Magnetic Bird Song.wav"
+            type="audio/wav"
+          >
+          Your browser does not support the audio element.
+        </audio>
       </div>
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-      
-<!--
-      
+
+      <!-- ==================================================
+           Add New Gallery Items Below
+      ================================================== -->
+
+      <!--
+
       <div class="gallery-item">
-        <img src="assets/green.jpg" 
-             alt="Playback image 1">
+        <img
+          src="assets/green.jpg"
+          alt="Playback image 1"
+        >
+
         <p>Description for Image 1 ...</p>
       </div>
 
 
       <div class="gallery-item">
-        <img src="assets/Anguilla_australis.jpg" 
-             alt="Playback image 1">
+        <img
+          src="assets/Anguilla_australis.jpg"
+          alt="Playback image 1"
+        >
+
         <p>Description for Image 1 ...</p>
       </div>
 
 
       <div class="gallery-item">
-        <img src="assets/FULLTOSSTHU04.jpg" 
-             alt="Playback image 2">
+        <img
+          src="assets/FULLTOSSTHU04.jpg"
+          alt="Playback image 2"
+        >
+
         <p>Description for Image 2 ...</p>
       </div>
 
-    -->
+      -->
 
     </section>
   </main>
 
-  <!-- Footer -->
+
+  <!-- ==================================================
+       Footer
+  ================================================== -->
+
   <footer>
     <ul>
-      <li><a href="https://instagram.com/yourpage" target="_blank">Instagram</a></li>
+      <li>
+        <a href="https://www.instagram.com/eels_ea" target="_blank">Instagram</a>
+      </li>
+
       <li>Email: eelsradio@gmail.com</li>
     </ul>
   </footer>
 
 
-  <!-- JS for masonry -->
+  <!-- ==================================================
+       Masonry Grid Script
+  ================================================== -->
+
   <script>
     function resizeAllGridItems() {
       const grid = document.querySelector('.gallery-container');
       const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
       const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+
       grid.querySelectorAll('.gallery-item').forEach(item => {
         const contentHeight = item.scrollHeight;
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+
         item.style.gridRowEnd = `span ${rowSpan}`;
       });
     }
+
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
   </script>

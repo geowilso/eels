@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- ==================================================
+       Basic Page Settings
+  ================================================== -->
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="About Eels: Learn about our mission as a sound and art radio station, featuring experimental broadcasts, productions, and a passion for audio storytelling.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <!-- SEO / Search Preview Description -->
+  <meta
+    name="description"
+    content="About Eels: Learn about eastern experimental listening service, an on-demand broadcast service and audio magazine based in east anglia."
+  >
+
+  <!-- Page Title -->
   <title>Eels - About</title>
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
-  <!-- Header Section -->
+  <!-- ==================================================
+       Header / Navigation
+  ================================================== -->
+
   <header>
+    <!-- Main Navigation -->
     <nav>
       <ul>
         <li><a href="index.html">BROADCAST</a></li>
@@ -17,81 +41,89 @@
         <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
+
+    <!-- Site Logo -->
     <div class="logo">
-      <img src="assets/Eels Logo.jpg" alt="Eels Radio Station Logo" loading="lazy">
+      <img
+        src="assets/Logos/Eels Logo.jpg"
+        alt="Eels Radio Station Logo"
+        loading="lazy"
+      >
     </div>
   </header>
 
-  <!-- Main gallery -->
+
+  <!-- ==================================================
+       Main Content
+  ================================================== -->
+
   <main>
-    <section id="gallery" class="gallery-container">
+    <!-- About Section Container -->
+    <section class="about-container">
 
+      <!-- Main About Content Box -->
+      <div class="about-square">
 
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-      
-      <div class="gallery-item">
-        <img src="assets/hut.jpg" 
-             alt="Artistic image representing Eels radio station's sound and art focus" 
-             >
-        <p>Description for Image 1 ...</p>
+        <!-- About Page Image -->
+        <img
+          src="assets/Logos/cute eel.jfif"
+          alt="Image for Eels about page"
+          class="about-image"
+        >
+
+        <!-- Introduction -->
+        <p>
+          <strong>eels {eastern experimental listening service}</strong>
+          is an on-demand broadcast service and audio magazine based
+          in east anglia.
+        </p>
+
+        <!-- About the Platform -->
+        <p>
+          We offer a platform for regular and one-off broadcasts of
+          aural cultural production. As eels themselves are drawn back
+          to the Sargasso Sea, the eastern experimental listening
+          service is particularly interested in work that originates
+          from or responds to the region of east anglia, with a view
+          to expand to a broader orbit as the platform grows.
+        </p>
+
+        <!-- Open Call / Submission Information -->
+        <p>
+          eels is open to proposals on an ongoing basis. Whether you
+          have the seed of an idea that you would like to develop,
+          or a fully-formed audio piece ready to broadcast, eels wants
+          to hear from you. Our remit is wide-ranging and encouraging
+          of experimental and hybrid broadcasting formats which can
+          include but are not limited to: radio documentary, narrative
+          forms, storytelling, audio collage, field recordings,
+          composition, sound art, expanded reading and writing,
+          discussion, experimental soundscape.
+        </p>
+
       </div>
-
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-      
-      <div class="gallery-item">
-        <img src="assets/green.jpg" 
-             alt="Artistic green-themed image for Eels radio station content" 
-             >
-        <p>Description for Image 1 ...</p>
-      </div>
-
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-
-      <div class="gallery-item">
-        <img src="assets/Anguilla_australis.jpg" 
-             alt="Playback image 1" 
-             >
-        <p>Description for Image 1 ...</p>
-      </div>
-
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-
-      <div class="gallery-item">
-        <img src="assets/FULLTOSSTHU04.jpg" 
-             alt="Playback image 2" 
-             >
-        <p>Description for Image 2 ...</p>
-      </div>
-
-      <!--<><><><><><>--ENTER NEW STUFF HERE--<><><><><><>-->
-
-
     </section>
   </main>
 
-  <!-- Footer -->
+
+  <!-- ==================================================
+       Footer
+  ================================================== -->
+
   <footer>
     <ul>
-      <li><a href="https://instagram.com/yourpage" target="_blank">Instagram</a></li>
-      <li>Email: youremail@example.com</li>
+      <li>
+        <a
+          href="https://instagram.com/eels_ea"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </li>
+
+      <li>Email: eelsradio@gmail.com</li>
     </ul>
   </footer>
-
-
-  <!-- JS for masonry -->
-  <script>
-    function resizeAllGridItems() {
-      const grid = document.querySelector('.gallery-container');
-      const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-      const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
-      grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = item.scrollHeight;
-        const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
-        item.style.gridRowEnd = `span ${rowSpan}`;
-      });
-    }
-    window.addEventListener('load', resizeAllGridItems);
-    window.addEventListener('resize', resizeAllGridItems);
-  </script>
 </body>
 </html>
