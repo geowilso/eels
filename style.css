@@ -208,6 +208,71 @@ audio {
   filter: grayscale(1) contrast(1.1);
 }
 
+.player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#play {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#play img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+
+/* Track */
+#seek {
+  width: 600px;
+  appearance: none;
+  background: transparent;
+}
+
+/* Chrome / Edge / Safari track */
+#seek::-webkit-slider-runnable-track {
+  height: 32px;
+  background-image: url("assets/Other/sqiggly line.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+
+/* Chrome / Edge / Safari thumb */
+#seek::-webkit-slider-thumb {
+  appearance: none;
+  width: 4px;
+  height: 32px;
+  background: black;
+  cursor: pointer;
+}
+
+/* Firefox track */
+#seek::-moz-range-track {
+  height: 32px;
+  background-image: url("assets/Other/sqiggly line.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+
+/* Firefox thumb */
+#seek::-moz-range-thumb {
+  width: 4px;
+  height: 32px;
+  background: black;
+  border: none;
+  cursor: pointer;
+}
+
+
+
 
 /* ==================================================
    Small Headings

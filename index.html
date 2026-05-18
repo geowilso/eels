@@ -79,13 +79,22 @@
           Instagram: @michaelridgeart
         </p>
 
-        <audio controls>
-          <source
-            src="assets/Broadcast/B1/Coastal Memories Fading and Wistfulness Of Magnetic Bird Song.wav"
-            type="audio/wav"
-          >
-          Your browser does not support the audio element.
-        </audio>
+        <audio id="audio" src="assets/Broadcast/B1/Coastal Memories Fading and Wistfulness Of Magnetic Bird Song.wav"></audio>
+
+          <div class="player">
+            <button id="play">
+              <img id="playIcon" src="assets/Other/play.jpg" alt="Play">
+            </button>
+
+            <input
+              id="seek"
+              type="range"
+              min="0"
+              value="0"
+              step="0.01"
+            />
+          </div>
+
       </div>
 
 
@@ -166,5 +175,35 @@
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
   </script>
+  
+  <script>
+      const audio = document.getElementById("audio");
+      const play = document.getElementById("play");
+      const seek = document.getElementById("seek");
+
+      play.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playIcon.src = "assets/Other/pause.jpg";
+      } else {
+        audio.pause();
+        playIcon.src = "assets/Other/play.jpg";
+      }
+      });
+
+      audio.addEventListener("loadedmetadata", () => {
+        seek.max = audio.duration;
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        seek.value = audio.currentTime;
+      });
+
+      seek.addEventListener("input", () => {
+        audio.currentTime = seek.value;
+      });
+    </script>
+
+
 </body>
 </html>
