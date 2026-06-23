@@ -1,65 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ==================================================
-       Basic Page Settings
-  ================================================== -->
-
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
-
-  <!-- SEO / Search Preview Description -->
   <meta
     name="description"
     content="Eels Productions: Explore original radio ballads and sound art creations, including immersive stories like 'Field Work in the Fens' blending audio, visuals, and narrative."
   >
-
-  <!-- Page Title -->
   <title>Eels - Productions</title>
-
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-const audio = document.getElementById("audio");
-const play = document.getElementById("play");
-const seek = document.getElementById("seek");
-
-play.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    playIcon.src = "assets/Other/pause.png";
-  } else {
-    audio.pause();
-    playIcon.src = "assets/Other/play.png";
-  }
-});
-
-audio.addEventListener("loadedmetadata", () => {
-  seek.max = audio.duration;
-});
-
-audio.addEventListener("timeupdate", () => {
-  seek.value = audio.currentTime;
-});
-
-seek.addEventListener("input", () => {
-  audio.currentTime = seek.value;
-});
-</script>
-
 <body>
-  <!-- ==================================================
-       Header / Navigation
-  ================================================== -->
-
   <header>
-    <!-- Main Navigation -->
     <nav>
       <ul>
         <li><a href="index.html">BROADCAST</a></li>
@@ -68,7 +24,6 @@ seek.addEventListener("input", () => {
       </ul>
     </nav>
 
-    <!-- Site Logo -->
     <div class="logo">
       <img
         src="assets/Logos/Eels Logo no background.png"
@@ -78,34 +33,16 @@ seek.addEventListener("input", () => {
     </div>
   </header>
 
-
-  <!-- ==================================================
-       Main Content
-  ================================================== -->
-
   <main>
-    <!-- Production Gallery -->
     <section id="gallery" class="gallery-container gallery-scroll-test">
-
-
-      <!-- ==================================================
-           Production Item:
-           Radio Ballad 003 - Field Work in the Fens
-      ================================================== -->
-
       <div class="gallery-item">
-
-        <!-- Production Artwork -->
         <img
           src="assets/Production/P1/Field Work image.jpg"
           alt="Artistic image of fenland landscape for Radio Ballad: Field Work in the Fens production"
         >
 
-        <!-- Production Title -->
         <h3>Radio Ballad 003: Field Work in the Fens</h3>
 
-
-        <!-- Production Description -->
         <p>
           Beginning with the over-cultivation of the fenland landscape in the
           wake of the Second World War, Radio Ballad 003: Field Work in the
@@ -122,7 +59,6 @@ seek.addEventListener("input", () => {
           of plants that takes place within the Anthropocene.
         </p>
 
-        <!-- Quote Section -->
         <p>
           “No witchcraft, no enemy action had silenced the rebirth of new life
           in this stricken world, the people had done it themselves”
@@ -130,22 +66,20 @@ seek.addEventListener("input", () => {
           — Rachel Carson, <em>Silent Springs</em>
         </p>
 
-        <!-- Credits -->
         <p>
           Featuring contributions from Dr Aoife O’Driscoll and
           Dr Emily Bourke, and music from the Shackleton Trio.
         </p>
 
-        <!-- Production Metadata -->
-        <p>
-          An original eels production (2022)
-        </p>
+        <p>An original eels production (2022)</p>
 
-        <!-- Audio Player -->
-        <audio id="audio" src="assets/Production/P1/SN Radio Ballad- Desk Recording.wav"></audio>
+        <audio
+          id="audio"
+          src="assets/Production/P1/SN Radio Ballad- Desk Recording.wav"
+        ></audio>
 
         <div class="player">
-          <button id="play">
+          <button id="play" aria-label="Play or pause audio">
             <img id="playIcon" src="assets/Other/play.png" alt="Play">
           </button>
 
@@ -155,11 +89,10 @@ seek.addEventListener("input", () => {
             min="0"
             value="0"
             step="0.01"
-          />
+            aria-label="Audio progress"
+          >
         </div>
       </div>
-
-
 
       <!-- Blank test items for checking gallery distribution. Delete these once real items are added. -->
       <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
@@ -170,51 +103,8 @@ seek.addEventListener("input", () => {
       <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
       <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
       <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
-
-      <!-- ==================================================
-           Add New Productions Below
-      ================================================== -->
-
-      <!--
-
-      <div class="gallery-item">
-        <img
-          src="assets/green.jpg"
-          alt="Playback image 1"
-        >
-
-        <p>Description for Image 1 ...</p>
-      </div>
-
-
-      <div class="gallery-item">
-        <img
-          src="assets/Anguilla_australis.jpg"
-          alt="Playback image 1"
-        >
-
-        <p>Description for Image 1 ...</p>
-      </div>
-
-
-      <div class="gallery-item">
-        <img
-          src="assets/FULLTOSSTHU04.jpg"
-          alt="Playback image 2"
-        >
-
-        <p>Description for Image 2 ...</p>
-      </div>
-
-      -->
-
     </section>
   </main>
-
-
-  <!-- ==================================================
-       Footer
-  ================================================== -->
 
   <footer>
     <ul>
@@ -227,21 +117,15 @@ seek.addEventListener("input", () => {
           Instagram
         </a>
       </li>
-
       <li>Email: eelsradio@gmail.com</li>
     </ul>
   </footer>
 
-
-  <!-- ==================================================
-       Masonry Grid Resize Script
-       Automatically resizes gallery items based
-       on their content height.
-  ================================================== -->
-
   <script>
     function resizeAllGridItems() {
       const grid = document.querySelector('.gallery-container');
+
+      if (!grid) return;
 
       const rowHeight = parseInt(
         window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')
@@ -252,24 +136,51 @@ seek.addEventListener("input", () => {
       );
 
       grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = Math.max(item.scrollHeight, parseInt(window.getComputedStyle(item).minHeight) || 0);
-
-        const rowSpan = Math.ceil(
-          (contentHeight + rowGap) / (rowHeight + rowGap)
-        );
+        const minHeight = parseInt(window.getComputedStyle(item).minHeight) || 0;
+        const contentHeight = Math.max(item.scrollHeight, minHeight);
+        const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
 
         item.style.gridRowEnd = `span ${rowSpan}`;
       });
     }
 
-    /* Run layout calculations once page loads */
     window.addEventListener('load', resizeAllGridItems);
-
-    /* Recalculate layout when browser resizes */
     window.addEventListener('resize', resizeAllGridItems);
+
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('load', resizeAllGridItems);
     });
+  </script>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const play = document.getElementById('play');
+    const playIcon = document.getElementById('playIcon');
+    const seek = document.getElementById('seek');
+
+    if (audio && play && playIcon && seek) {
+      play.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playIcon.src = 'assets/Other/pause.png';
+        } else {
+          audio.pause();
+          playIcon.src = 'assets/Other/play.png';
+        }
+      });
+
+      audio.addEventListener('loadedmetadata', () => {
+        seek.max = audio.duration;
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        seek.value = audio.currentTime;
+      });
+
+      seek.addEventListener('input', () => {
+        audio.currentTime = seek.value;
+      });
+    }
   </script>
 </body>
 </html>
