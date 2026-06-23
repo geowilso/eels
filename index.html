@@ -33,7 +33,7 @@
     <!-- Site Logo -->
     <div class="logo">
       <img
-        src="assets/Logos/Eels Logo.jpg"
+        src="assets/Logos/Eels logo no background.png"
         alt="Eels Radio Station Logo"
         loading="lazy"
       >
@@ -47,7 +47,7 @@
 
   <main>
     <!-- Broadcast Gallery -->
-    <section id="gallery" class="gallery-container">
+    <section id="gallery" class="gallery-container gallery-scroll-test">
 
       <!-- ==================================================
            Gallery Item: Coastal Memories
@@ -83,7 +83,7 @@
 
           <div class="player">
             <button id="play">
-              <img id="playIcon" src="assets/Other/play.jpg" alt="Play">
+              <img id="playIcon" src="assets/Other/play.png" alt="Play">
             </button>
 
             <input
@@ -97,6 +97,18 @@
 
       </div>
 
+
+
+
+      <!-- Blank test items for checking gallery distribution. Delete these once real items are added. -->
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
 
       <!-- ==================================================
            Add New Gallery Items Below
@@ -165,7 +177,7 @@
       const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
 
       grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = item.scrollHeight;
+        const contentHeight = Math.max(item.scrollHeight, parseInt(window.getComputedStyle(item).minHeight) || 0);
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
 
         item.style.gridRowEnd = `span ${rowSpan}`;
@@ -174,6 +186,9 @@
 
     window.addEventListener('load', resizeAllGridItems);
     window.addEventListener('resize', resizeAllGridItems);
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('load', resizeAllGridItems);
+    });
   </script>
   
   <script>
@@ -184,10 +199,10 @@
       play.addEventListener("click", () => {
       if (audio.paused) {
         audio.play();
-        playIcon.src = "assets/Other/pause.jpg";
+        playIcon.src = "assets/Other/pause.png";
       } else {
         audio.pause();
-        playIcon.src = "assets/Other/play.jpg";
+        playIcon.src = "assets/Other/play.png";
       }
       });
 

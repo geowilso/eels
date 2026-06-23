@@ -25,6 +25,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+const audio = document.getElementById("audio");
+const play = document.getElementById("play");
+const seek = document.getElementById("seek");
+
+play.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playIcon.src = "assets/Other/pause.png";
+  } else {
+    audio.pause();
+    playIcon.src = "assets/Other/play.png";
+  }
+});
+
+audio.addEventListener("loadedmetadata", () => {
+  seek.max = audio.duration;
+});
+
+audio.addEventListener("timeupdate", () => {
+  seek.value = audio.currentTime;
+});
+
+seek.addEventListener("input", () => {
+  audio.currentTime = seek.value;
+});
+</script>
 
 <body>
   <!-- ==================================================
@@ -44,7 +71,7 @@
     <!-- Site Logo -->
     <div class="logo">
       <img
-        src="assets/Logos/Eels Logo.jpg"
+        src="assets/Logos/Eels Logo no background.png"
         alt="Eels Radio Station Logo"
         loading="lazy"
       >
@@ -58,7 +85,7 @@
 
   <main>
     <!-- Production Gallery -->
-    <section id="gallery" class="gallery-container">
+    <section id="gallery" class="gallery-container gallery-scroll-test">
 
 
       <!-- ==================================================
@@ -115,16 +142,34 @@
         </p>
 
         <!-- Audio Player -->
-        <audio controls>
-          <source
-            src="assets/Production/P1/SN Radio Ballad- Desk Recording.wav"
-            type="audio/wav"
-          >
+        <audio id="audio" src="assets/Production/P1/SN Radio Ballad- Desk Recording.wav"></audio>
 
-          Your browser does not support the audio element.
-        </audio>
+        <div class="player">
+          <button id="play">
+            <img id="playIcon" src="assets/Other/play.png" alt="Play">
+          </button>
+
+          <input
+            id="seek"
+            type="range"
+            min="0"
+            value="0"
+            step="0.01"
+          />
+        </div>
       </div>
 
+
+
+      <!-- Blank test items for checking gallery distribution. Delete these once real items are added. -->
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
+      <div class="gallery-item placeholder" aria-label="Blank gallery placeholder"></div>
 
       <!-- ==================================================
            Add New Productions Below
@@ -207,7 +252,7 @@
       );
 
       grid.querySelectorAll('.gallery-item').forEach(item => {
-        const contentHeight = item.scrollHeight;
+        const contentHeight = Math.max(item.scrollHeight, parseInt(window.getComputedStyle(item).minHeight) || 0);
 
         const rowSpan = Math.ceil(
           (contentHeight + rowGap) / (rowHeight + rowGap)
@@ -222,6 +267,9 @@
 
     /* Recalculate layout when browser resizes */
     window.addEventListener('resize', resizeAllGridItems);
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('load', resizeAllGridItems);
+    });
   </script>
 </body>
 </html>
