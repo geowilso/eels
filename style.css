@@ -129,7 +129,7 @@ main {
   min-height: 360px;
   max-height: none;
   overflow: visible;
-  cursor: pointer;
+  cursor: default;
 }
 
 .gallery-item img {
@@ -181,6 +181,7 @@ main {
 }
 
 #play,
+.play,
 .play-button {
   background: none;
   border: none;
@@ -189,6 +190,8 @@ main {
 }
 
 #play img,
+.play img,
+.playIcon,
 .play-button img {
   width: 40px;
   height: 40px;
@@ -196,6 +199,7 @@ main {
 }
 
 #seek,
+.seek,
 .seek-bar {
   flex: 1;
   width: 100%;
@@ -205,6 +209,7 @@ main {
 }
 
 #seek::-webkit-slider-runnable-track,
+.seek::-webkit-slider-runnable-track,
 .seek-bar::-webkit-slider-runnable-track {
   height: 32px;
   background-image: url("assets/Other/sqiggly line.png");
@@ -214,6 +219,7 @@ main {
 }
 
 #seek::-webkit-slider-thumb,
+.seek::-webkit-slider-thumb,
 .seek-bar::-webkit-slider-thumb {
   appearance: none;
   width: 4px;
@@ -223,6 +229,7 @@ main {
 }
 
 #seek::-moz-range-track,
+.seek::-moz-range-track,
 .seek-bar::-moz-range-track {
   height: 32px;
   background-image: url("assets/Other/sqiggly line.png");
@@ -232,6 +239,7 @@ main {
 }
 
 #seek::-moz-range-thumb,
+.seek::-moz-range-thumb,
 .seek-bar::-moz-range-thumb {
   width: 4px;
   height: 32px;
@@ -239,7 +247,6 @@ main {
   border: none;
   cursor: pointer;
 }
-
 
 /* ==================================================
    Small Headings
